@@ -1,0 +1,9 @@
+# Specify the parent image from which we build
+FROM openjdk:11-jdk
+
+COPY ./setup_android.sh .
+# WORKDIR /app
+
+RUN bash setup_android.sh
+
+CMD ["jshell"]
