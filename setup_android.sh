@@ -1,8 +1,8 @@
 #!/bin/bash 
-COMPILE_SDK = "31"
-BUILD_TOOLS_VERSION = "33.0.0"
-NDK_VERSION = "23.1.7779620"
-SDK_TOOLS_VERSION = "9123335"
+COMPILE_SDK="31"
+BUILD_TOOLS_VERSION="33.0.0"
+NDK_VERSION="23.1.7779620"
+SDK_TOOLS_VERSION="9123335"
 
 apt-get --quiet update --yes 
 apt-get --quiet install --yes wget tar unzip make  
