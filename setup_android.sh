@@ -1,8 +1,8 @@
 #!/bin/bash 
-compileSdk = "31"
-buildToolsVersion = "33.0.0"
-ndkVersion = "23.1.7779620"
-sdkToolsVersion = "9123335"
+COMPILE_SDK = "31"
+BUILD_TOOLS_VERSION = "33.0.0"
+NDK_VERSION = "23.1.7779620"
+SDK_TOOLS_VERSION = "9123335"
 
 apt-get --quiet update --yes 
 apt-get --quiet install --yes wget tar unzip make  
@@ -14,7 +14,7 @@ install -d $ANDROID_SDK_ROOT
 # (the key thing here is the url from where you are downloading these sdk tool for command line, so please do note this url pattern there and here as well)  
 # after that unzipping those tools and  
 # then running a series of SDK manager commands to install necessary android SDK packages that'll allow the app to build  
-wget --output-document=$ANDROID_SDK_ROOT/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-${sdkToolsVersion}_latest.zip  
+wget --output-document=$ANDROID_SDK_ROOT/cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip  
 # move to the archive at ANDROID_SDK_ROOT  
 pushd $ANDROID_SDK_ROOT  
 unzip -d cmdline-tools cmdline-tools.zip  
@@ -27,7 +27,7 @@ export PATH=$PATH:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin/
 sdkmanager --version  
 # use yes to accept all licenses  
 yes | sdkmanager --licenses || true  
-sdkmanager "platforms;android-$compileSdk"  
+sdkmanager "platforms;android-$COMPILE_SDK"  
 sdkmanager "platform-tools"  
-sdkmanager "build-tools;$buildToolsVersion"  
+sdkmanager "build-tools;$BUILD_TOOLS_VERSION"  
 export ANDROID_HOME=$ANDROID_SDK_ROOT 
