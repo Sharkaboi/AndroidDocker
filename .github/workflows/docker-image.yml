@@ -22,9 +22,7 @@ jobs:
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
-      run: docker build . --file DockerFile --tag $DOCKER_USER/androiddocker:$(date +%s)
+      run: docker build . --file DockerFile --tag ${{secrets.DOCKER_USER}}/androiddocker:$(date +%s)
       
     - name: Docker push
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-      run: docker push $DOCKER_USER/androiddocker
+      run: docker push ${{secrets.DOCKER_USER}}/androiddocker
