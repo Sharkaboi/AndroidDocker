@@ -24,5 +24,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file DockerFile --tag ${{secrets.DOCKER_USER}}/androiddocker:$(date +%s)
       
+    - name: List docker images
+      run: docker images
+      
     - name: Docker push
-      run: docker push ${{secrets.DOCKER_USER}}/androiddocker
+      run: docker push --all-tags ${{secrets.DOCKER_USER}}/androiddocker
