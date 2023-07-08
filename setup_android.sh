@@ -21,7 +21,8 @@ unzip -d cmdline-tools cmdline-tools.zip
 pushd cmdline-tools  
 # since commandline tools version 7583922 the root folder is named "cmdline-tools" so we rename it if necessary  
 mv cmdline-tools tools || true  
-popd   
+popd  
+popd 
 export PATH=$PATH:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin/  
 # Nothing fancy here, just checking sdkManager version  
 sdkmanager --version  
@@ -31,3 +32,18 @@ sdkmanager "platforms;android-$COMPILE_SDK"
 sdkmanager "platform-tools"  
 sdkmanager "build-tools;$BUILD_TOOLS_VERSION"  
 export ANDROID_HOME=$ANDROID_SDK_ROOT 
+echo printing android home
+echo $ANDROID_HOME
+echo printing path
+echo $PATH
+echo printing sdk root
+echo $ANDROID_SDK_ROOT
+echo printing compile sdk
+echo $COMPILE_SDK
+echo printing build tools version
+echo $BUILD_TOOLS_VERSION
+echo printing ndk version
+echo $NDK_VERSION
+echo printing sdk tools version
+echo $SDK_TOOLS_VERSION
+# 
