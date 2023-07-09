@@ -26,11 +26,13 @@ RUN mkdir -p $ANDROID_SDK_ROOT && \
     cd .. && \
     rm cmdline-tools.zip
 
+RUN sdkmanager --version
+
 # Accept SDK licenses and install necessary packages
-RUN yes | $ANDROID_SDK_ROOT/cmdline-tools/tools/bin/sdkmanager --licenses || true && \
-    $ANDROID_SDK_ROOT/cmdline-tools/tools/bin/sdkmanager "platforms;android-$COMPILE_SDK" && \
-    $ANDROID_SDK_ROOT/cmdline-tools/tools/bin/sdkmanager "platform-tools" && \
-    $ANDROID_SDK_ROOT/cmdline-tools/tools/bin/sdkmanager "build-tools;$BUILD_TOOLS_VERSION"
+RUN yes | sdkmanager --licenses || true && \
+    sdkmanager "platforms;android-$COMPILE_SDK" && \
+    sdkmanager "platform-tools" && \
+    sdkmanager "build-tools;$BUILD_TOOLS_VERSION"
 
 # Print environment variables for verification
 RUN echo "printing android home" && \

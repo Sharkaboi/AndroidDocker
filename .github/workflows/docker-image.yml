@@ -22,7 +22,7 @@ jobs:
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
-      run: docker build . --file DockerFile --tag ${{secrets.DOCKER_USER}}/androiddocker:v2
+      run: docker build . --file DockerFile --tag ${{secrets.DOCKER_USER}}/androiddocker:v3
       
     - name: List docker images
       run: docker images
